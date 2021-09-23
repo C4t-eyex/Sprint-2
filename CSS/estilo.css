@@ -156,6 +156,12 @@ input[type="text"] {
     border-radius: 10px;
 }
 
+input[type="number"] {
+    color: black;
+    border: 3px solid #d22a7c;
+    border-radius: 10px;
+}
+
 input[type="password"] {
     color: black;
     border: 3px solid #d22a7c;
