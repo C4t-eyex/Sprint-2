@@ -48,7 +48,7 @@
   }
 
   function checkTelefono(valor) {
-    valor.preventDefault();
+    //valor.preventDefault();
     var telefono = document.getElementById('telefono').value;
     if(telefono.length == 0) {
       alert('Error - Campo telefono vacío');
