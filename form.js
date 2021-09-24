@@ -1,13 +1,13 @@
-document.addEventListener("DOMContentLoaded", function() {
+/*document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("form-registro").addEventListener('submit', checkNombre); 
     document.getElementById("form-registro").addEventListener('submit', checkApellido); 
     document.getElementById("form-registro").addEventListener('submit', checkTelefono); 
     document.getElementById("form-registro").addEventListener('submit', checkCorreo);
     document.getElementById("form-registro").addEventListener('submit', checkContrasena);  
-  });
+  });*/
 
   function checkNombre(valor) {
-    valor.preventDefault();
+    //valor.preventDefault();
     var nombre = document.getElementById('nombre').value;
     // Condicional que indica que error por no relleno del recuadro de ingreso de datos
     if(nombre.length == 0) {
@@ -17,18 +17,18 @@ document.addEventListener("DOMContentLoaded", function() {
     if (!/^[a-zA-Z]*$/g.test(nombre)) {
       alert("Error - Campo nombre (Ingrese solo letras)");
       document.getElementById("nombre").value = "";
-      nombre.focus();
+      //nombre.focus();
       return false;
       }
     if(nombre.length <= 4 || nombre.length >= 30) {
         alert('Error - Campo nombre (Longitud entre 4 y 30 caracteres)');
-        return false;
+        return true;
     }
-    return true;
+    return false;
   }
 
   function checkApellido(valor) {
-    valor.preventDefault();
+    //valor.preventDefault();
     var apellidos = document.getElementById('apellidos').value;
     if(apellidos.length == 0) {
       alert('Error - Campo apellidos vacío');
@@ -42,9 +42,9 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     if(apellidos.length <= 4 || apellidos.length >= 30) {
         alert('Error - Campo apellidos (Longitud entre 4 y 30 caracteres)');
-        return false;
+        return true;
     }
-    return true;
+    return false;
   }
 
   function checkTelefono(valor) {
@@ -55,12 +55,12 @@ document.addEventListener("DOMContentLoaded", function() {
       return false;
     }
     if (!/^[0-9]+$/g.test(telefono)) {
-      alert("Error - Campo telefono (Ingrese solo numeros)");
+      alert("Error - Campo telefono (Ingrese solo números)");
       document.getElementById("telefono").value = "";
       telefono.focus();
       return false;
       }
-    if(telefono.length != 7) {
+    if(telefono.length > 7) {
         alert('Error - Campo telefono (Longitud de 7 números)');
         return false;
     }
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function checkCorreo(valor) {
-    valor.preventDefault();
+    //valor.preventDefault();
     var correo = document.getElementById('correo').value;
     if(correo.length == 0) {
       alert('Error - Campo correo vacío');
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function checkContrasena(valor) {
-    valor.preventDefault();
+    //valor.preventDefault();
     var contrasena = document.getElementById('contrasena').value;
     if(contrasena.length == 0) {
       alert('Error - Campo Contraseña vacío');
@@ -99,5 +99,6 @@ document.addEventListener("DOMContentLoaded", function() {
     return true;
   }
 
-//module.exports = { checkNombre, checkApellido,  checkTelefono, checkCorreo, checkContrasena };
-
+module.exports={
+    checkNombre,checkApellido,checkTelefono,checkCorreo,checkContrasena
+}
